@@ -1,8 +1,12 @@
 const express = require("express");
-
+const dotenv = require("dotenv");
 const app = express()
+dotenv.config({ path: "./config.env" });
+const bikeRoute = require('./router/bikes.route')
 
-const PORT = process.env.PORT | 3031;
+app.use("/api/",bikeRoute)
+
+const PORT = process.env.PORT;
 
 app.listen(PORT,() => {
     console.log("Server is running on port " + PORT)
