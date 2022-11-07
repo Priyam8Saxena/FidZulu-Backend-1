@@ -1,5 +1,27 @@
 var bikes = require('../utils/bikes.json')
 
+const fs = require('fs'); 
+
+let teams = require("../utils/team.json")
+
+let read_json_team = () => {
+    let file = '../utils/team.json';
+    return fs.readFileSync(file);
+}
+
+exports.team = (req, res) => {
+    try {
+        let input= teams
+        return res.status(200).json(input)
+    }
+    catch(error) {
+        res.status(500).json({
+            error: true,
+            message: error.message,
+        });
+    }
+};
+
 exports.findPricesOfBikes = (req,res) => {
     try{
         console.log(req.params.location)
