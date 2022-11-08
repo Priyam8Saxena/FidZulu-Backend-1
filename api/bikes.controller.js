@@ -24,8 +24,8 @@ exports.team = (req, res) => {
 
 exports.findPricesOfBikes = (req,res) => {
     try{
-        console.log(req.params.location)
-        const location = req.params.location.toLowerCase()
+        console.log(req.query.location)
+        const location = req.query.location.toLowerCase()
         let tax = 0;
         let conversion_rate;
         let symbol;

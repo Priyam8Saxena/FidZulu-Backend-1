@@ -8,7 +8,7 @@ dotenv.config({ path: "./config.env" });
 
 const bikeRoute = require('./router/bikes.route')
 
-app.use("/api/",bikeRoute)
+app.use("/",bikeRoute)
 
 const PORT = process.env.PORT;
 
