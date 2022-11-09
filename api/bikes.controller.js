@@ -2,12 +2,10 @@ var bikes = require('../utils/bikes.json')
 
 const fs = require('fs'); 
 
+const path = require('path');
+
 let teams = require("../utils/team.json")
 
-let read_json_team = () => {
-    let file = '../utils/team.json';
-    return fs.readFileSync(file);
-}
 
 exports.team = (req, res) => {
     try {
@@ -72,4 +70,29 @@ exports.findPricesOfBikes = (req,res) => {
         })
     }
 }
+
+// exports.insertBike = (req, res) => {
+//     try {
+//         let payload = req.body;
+// console.log(payload)
+//         let bikesRaw = fs.readFileSync(path.resolve("../utils/bikes.json").replace(/\\/g, '/'));
+//         let bikeJson = JSON.parse(bikesRaw);
+//     console.log(bikesRaw)
+//         bikeJson.push(payload);
+        
+//         fs.writeFileSync(path.resolve("../utils/bikes.json").replace(/\\/g, '/'), JSON.stringify(bikeJson));
+
+//         res.status(201).json({
+//             error: false,
+//             message: "record created successully",
+//             data: payload,
+//         });
+//     }
+//     catch(error) {
+//         res.status(500).json({
+//             error: true,
+//             message: error.message
+//         });
+//     }
+// }
 

@@ -1,13 +1,13 @@
 const express = require('express')
 const router = express.Router()
 
-const { findPricesOfBikes, team } = require("../api/bikes.controller")
+const { findPricesOfBikes, team, insertBike } = require("../api/bikes.controller")
 
 
 router
     .route("/bikes")
     .get(findPricesOfBikes)
- 
+    //.post(insertBike)
     
 router
     .route("/team")  
